@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Login - NeuroScan AI{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-box">
+        <h2>Login</h2>
+        <p class="subtext">Only verified users can log in.</p>
+        <form method="POST">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class="form-footer">
+            New user? <a href="{{ url_for('auth.register') }}">Create account</a><br>
+            Forgot password? <a href="{{ url_for('auth.forgot_password') }}">Reset it</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

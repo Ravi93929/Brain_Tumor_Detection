@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Verify Email - NeuroScan AI{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-box">
+        <h2>Verify Email</h2>
+        <p class="subtext">Enter the OTP sent to <strong>{{ email }}</strong>.</p>
+        <form method="POST">
+            <input type="number" name="otp" placeholder="Enter 6-digit OTP" required>
+            <button type="submit" class="btn btn-primary">Verify OTP</button>
+        </form>
+        <div class="form-footer">Didn’t get it? <a href="{{ url_for('auth.resend_otp', purpose='verify') }}">Resend OTP</a></div>
+    </div>
+</div>
+{% endblock %}

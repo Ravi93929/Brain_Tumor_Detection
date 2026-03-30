@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Home - NeuroScan AI{% endblock %}
+{% block content %}
+<section class="hero-banner" style="background: url('{{ config.HERO_IMAGE_URL }}') center center / cover no-repeat;">
+    <div class="hero-overlay"></div>
+    <div class="hero-main-wrap">
+        <div class="hero-left">
+            <div class="hero-tag">🧠 AI-driven MRI brain tumor detection</div>
+            <h1>Detect <span class="highlight">Brain Tumors</span><br>with Smarter Medical AI</h1>
+            <p>
+                NeuroScan AI helps users securely upload MRI brain scans, process them through a trained
+                deep learning model, and receive clear prediction results with confidence score,
+                class breakdown, and personal prediction history.
+            </p>
+
+            <div class="hero-side-horizontal">
+                <div class="visual-card">
+                    <h4>MRI Upload</h4>
+                    <p>Upload supported MRI brain images using a guided and clean interface.</p>
+                </div>
+                <div class="visual-card">
+                    <h4>Model Inference</h4>
+                    <p>The CNN model processes the image after resizing and normalization.</p>
+                </div>
+                <div class="visual-card">
+                    <h4>Prediction Insight</h4>
+                    <p>Users see the top class, confidence score, and class probabilities clearly.</p>
+                </div>
+                <div class="visual-card">
+                    <h4>User Records</h4>
+                    <p>Recent prediction results stay visible in the user dashboard for quick review.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-gap">
+    <h2 class="section-title">Model Information</h2>
+    <p class="section-subtitle">This section explains the core technical details of the brain tumor detection model used in the application.</p>
+    <div class="features">
+        <div class="feature-box">
+            <h3>Model Name</h3>
+            <p><strong>{{ config.MODEL_NAME }}</strong></p>
+            <p>This is the trained deep learning model used to classify uploaded MRI brain scans.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Model Type</h3>
+            <p><strong>{{ config.MODEL_TYPE }}</strong></p>
+            <p>The system uses a VGG16 pre-trained convolutional neural network with transfer learning for brain MRI image classification.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Version</h3>
+            <p><strong>{{ config.MODEL_VERSION }}</strong></p>
+            <p>This version includes secure authentication, prediction history, report generation, and PDF export.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-gap">
+    <div class="features">
+        <div class="feature-box">
+            <h3>Input Size</h3>
+            <p><strong>{{ config.IMAGE_SIZE }} × {{ config.IMAGE_SIZE }}</strong></p>
+            <p>Each MRI image is resized to this exact dimension before being passed to the model.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Target Classes</h3>
+            <p><strong>No Tumor, Glioma, Pituitary, Meningioma</strong></p>
+            <p>The model predicts one of these four output categories based on the uploaded MRI image.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Dataset Info</h3>
+            <p><strong>{{ config.DATASET_INFO }}</strong></p>
+            <p>The training data contains labeled MRI scans grouped into multiple tumor-related categories.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-gap">
+    <h2 class="section-title">How the MRI prediction pipeline works</h2>
+    <p class="section-subtitle">The app follows a fixed pipeline. It is not magic. If preprocessing and model training do not match, prediction quality drops.</p>
+    <div class="steps-grid">
+        <div class="step-card"><div class="step-number">1</div><h4>User Input</h4><p>The user uploads one MRI image through the secure dashboard.</p></div>
+        <div class="step-card"><div class="step-number">2</div><h4>Image Preparation</h4><p>The image is resized, converted to array format, normalized, and prepared for the model.</p></div>
+        <div class="step-card"><div class="step-number">3</div><h4>Deep Learning Prediction</h4><p>The trained CNN generates probability scores for all defined brain tumor classes.</p></div>
+        <div class="step-card"><div class="step-number">4</div><h4>Readable Output</h4><p>The app displays the final prediction, confidence level, class breakdown, saves history, and exports PDF reports.</p></div>
+    </div>
+</section>
+{% endblock %}

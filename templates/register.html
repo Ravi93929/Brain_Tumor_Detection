@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Register - NeuroScan AI{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+    <div class="form-box">
+        <h2>Create Account</h2>
+        <p class="subtext">Register and verify your email with OTP before login is allowed.</p>
+        <form method="POST">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password (min 6 chars)" required>
+            <button type="submit" class="btn btn-primary">Register &amp; Send OTP</button>
+        </form>
+        <div class="form-footer">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></div>
+    </div>
+</div>
+{% endblock %}

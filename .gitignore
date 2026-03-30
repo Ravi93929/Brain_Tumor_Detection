@@ -1,0 +1,8 @@
+.env
+users.db
+uploads/
+__pycache__/
+*.pyc
+.venv/
+compat_env/
+models/model.h5
